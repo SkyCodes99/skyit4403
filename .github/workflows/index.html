@@ -3,18 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IT 4403 Homepage - [Your Name]</title>
+    <title>IT 4403 Homepage - Skyler Swislow</title>
     <style>
         /* Accessibility: High contrast colors (WCAG compliant) */
         :root {
-            --bg-color: #ffffff;
-            --text-color: #1a1a1a;
+            --bg-color: #f8f9fa; /* Slightly off-white for less eye strain */
+            --container-bg: #ffffff;
+            --text-color: #212529;
             --link-color: #0056b3;
-            --accent-color: #f4f4f4;
+            --accent-color: #e9ecef;
+            --primary-brand: #2c3e50; /* Deep blue-grey for a professional feel */
         }
 
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: var(--text-color);
             background-color: var(--bg-color);
@@ -23,42 +25,105 @@
         }
 
         header {
-            background-color: var(--accent-color);
-            padding: 2rem;
-            border-bottom: 3px solid #333;
+            background-color: var(--primary-brand);
+            color: white;
+            padding: 3rem 1rem;
             text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            letter-spacing: 1px;
+        }
+
+        header p {
+            margin-top: 0.5rem;
+            opacity: 0.9;
+            font-weight: 300;
         }
 
         main {
-            max-width: 800px;
+            max-width: 850px;
             margin: 2rem auto;
-            padding: 0 1rem;
+            padding: 2rem;
+            background-color: var(--container-bg);
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        }
+
+        section h2 {
+            color: var(--primary-brand);
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 10px;
         }
 
         nav {
-            margin: 1.5rem 0;
-            padding: 1rem;
-            background: #eee;
-            border-radius: 8px;
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: var(--accent-color);
+            border-radius: 10px;
+            border-left: 6px solid var(--primary-brand);
+        }
+
+        nav h3 {
+            margin-top: 0;
+            color: var(--primary-brand);
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            padding: 10px 0;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        li:last-child {
+            border-bottom: none;
         }
 
         .disclaimer {
             font-style: italic;
             background: #fff3cd;
-            padding: 10px;
+            padding: 15px;
             border-left: 5px solid #ffeeba;
-            margin-top: 2rem;
+            margin-top: 3rem;
+            border-radius: 4px;
+            font-size: 0.95rem;
         }
 
         footer {
             text-align: center;
-            padding: 2rem;
+            padding: 3rem;
             font-size: 0.9rem;
-            border-top: 1px solid #ccc;
+            color: #6c757d;
         }
 
-        a { color: var(--link-color); text-decoration: underline; }
-        a:hover { text-decoration: none; }
+        a { 
+            color: var(--link-color); 
+            text-decoration: none; 
+            font-weight: bold;
+        }
+        
+        a:hover { 
+            text-decoration: underline; 
+            color: #003d80;
+        }
+
+        /* Mobile Responsive Adjustments */
+        @media (max-width: 600px) {
+            main {
+                margin: 1rem;
+                padding: 1rem;
+            }
+            header h1 {
+                font-size: 1.8rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -77,8 +142,8 @@
         <nav>
             <h3>Course Work</h3>
             <ul>
-                <li><a href="exercises.html">Exercises</a> - Small coding tasks and practice.</li>
-                <li><a href="labs.html">Lab Work</a> - Detailed laboratory assignments and project milestones.</li>
+                <li><a href="exercises.html">Exercises</a> — Small coding tasks and practice.</li>
+                <li><a href="labs.html">Lab Work</a> — Detailed laboratory assignments and project milestones.</li>
                 <li><a href="https://ccse.kennesaw.edu/it" target="_blank">CCSE Department of IT Website</a></li>
             </ul>
         </nav>
