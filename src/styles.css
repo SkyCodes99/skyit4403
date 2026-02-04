@@ -1,21 +1,129 @@
+/* --- Variables & Reset --- */
+:root {
+    --primary-brand: #2c3e50;    /* Dark professional blue */
+    --accent-color: #3498db;     /* Lighter blue for links/actions */
+    --bg-light: #f4f7f6;         /* Light grey background */
+    --white: #ffffff;
+    --text-main: #333333;
+    --text-muted: #7f8c8d;
+    --warning-bg: #fff3cd;
+}
+
 * {
-  font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
 }
 
-html, body {
-  margin: 0;
-  border: 0;
-  padding: 0;
-  background-color: #fff;
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.7;
+    color: var(--text-main);
+    background-color: var(--bg-light);
+    margin: 0;
+    padding: 0;
 }
 
+/* --- Header Section --- */
+header {
+    background-color: var(--primary-brand);
+    color: var(--white);
+    padding: 4rem 1rem;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.8rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+header p {
+    font-weight: 300;
+    font-size: 1.2rem;
+    margin-top: 10px;
+    opacity: 0.8;
+}
+
+/* --- Main Content Layout --- */
 main {
-  margin: auto;
-  width: 50%;
-  padding: 20px;
+    max-width: 900px;
+    margin: -40px auto 40px; /* Pulls content up over the header slightly */
+    padding: 2.5rem;
+    background-color: var(--white);
+    border-radius: 12px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.05);
 }
 
-main > h1 {
-  text-align: center;
-  font-size: 3.5em;
+section h2 {
+    color: var(--primary-brand);
+    border-bottom: 2px solid #eee;
+    padding-bottom: 12px;
+    margin-top: 0;
+}
+
+/* --- Navigation & Links --- */
+nav {
+    margin: 2.5rem 0;
+    padding: 1.5rem;
+    background: #fdfdfd;
+    border: 1px solid #e1e4e8;
+    border-left: 8px solid var(--accent-color);
+    border-radius: 8px;
+}
+
+nav h3 {
+    margin-top: 0;
+    font-size: 1.3rem;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    padding: 12px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+li:last-child {
+    border-bottom: none;
+}
+
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    color: var(--primary-brand);
+    padding-left: 5px; /* Subtle slide effect on hover */
+}
+
+/* --- Disclaimer --- */
+.disclaimer {
+    background-color: var(--warning-bg);
+    padding: 1.2rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    color: #856404;
+    border: 1px solid #ffeeba;
+}
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 4rem 1rem;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+    header { padding: 3rem 1rem; }
+    header h1 { font-size: 2rem; }
+    main { margin: 20px 15px; padding: 1.5rem; }
 }
