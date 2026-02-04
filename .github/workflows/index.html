@@ -3,38 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IT 4403 Homepage - Skyler Swislow</title>
+    <title>Skyler Swislow | IT 4403 Portfolio</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header>
+    <header class="hero">
+        <span class="badge">Student Portfolio</span>
         <h1>Skyler Swislow</h1>
-        <p>Student | CCSE Department of IT</p>
+        <p>Advanced Web and Mobile Applications | CCSE Department of IT</p>
     </header>
 
-    <main>
-        <section>
+    <div class="container">
+        <section class="section-card">
             <h2>Site Overview</h2>
-            <p>Welcome to my course portal for <strong>IT 4403 – Advanced Web and Mobile Applications</strong>. This site serves as a central hub for my academic projects, where I demonstrate my skills in developing responsive and accessible web applications.</p>
+            <p>Welcome to my professional course portal for <strong>IT 4403</strong>. This platform showcases my journey through advanced development, focusing on high-performance, accessible, and responsive web architecture.</p>
         </section>
 
-        <nav>
-            <h3>Course Work</h3>
-            <ul>
-                <li><a href="exercises.html">Exercises</a> — Small coding tasks and practice.</li>
-                <li><a href="labs.html">Lab Work</a> — Detailed laboratory assignments and project milestones.</li>
-                <li><a href="https://ccse.kennesaw.edu/it" target="_blank">CCSE Department of IT Website</a></li>
-            </ul>
-        </nav>
+        <div class="grid">
+            <a href="exercises.html" class="card">
+                <h3>Exercises</h3>
+                <p>A collection of algorithmic challenges, UI snippets, and coding practice modules.</p>
+            </a>
+
+            <a href="labs.html" class="card">
+                <h3>Lab Work</h3>
+                <p>Deep dives into project milestones, system architecture, and mobile integration.</p>
+            </a>
+
+            <a href="https://ccse.kennesaw.edu/it" target="_blank" class="card">
+                <h3>KSU Department</h3>
+                <p>Official resources and documentation from the Kennesaw State University IT department.</p>
+            </a>
+        </div>
 
         <section class="disclaimer">
-            <p><strong>Disclaimer:</strong> This is a student website created for course projects in IT 4403. Content on this site is for educational purposes only.</p>
+            <p><small><strong>Disclaimer:</strong> Educational project for IT 4403. All rights reserved.</small></p>
         </section>
-    </main>
+    </div>
 
     <footer>
-        <p>&copy; 2026 Skyler Swislow | IT 4403</p>
+        <p>&copy; 2026 Skyler Swislow | Built with HTML5 & Modern CSS</p>
     </footer>
 
 </body>
