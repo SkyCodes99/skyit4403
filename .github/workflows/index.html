@@ -3,54 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skyler Swislow | IT Portfolio Template</title>
+    <title>Skyler Swislow | IT Portfolio</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <nav class="navbar">
-        <div class="wrapper nav-content">
-            <a href="#" class="logo">S.SWISLOW</a>
-            <div class="nav-links">
-                <a href="https://github.com" style="text-decoration: none; color: var(--text-sub);">GitHub</a>
+    <aside>
+        <div class="logo-area">S.SWISLOW</div>
+        <ul class="nav-tabs">
+            <li><a href="index.html" class="active">Home Portal</a></li>
+            <li><a href="exercises.html">Code Exercises</a></li>
+            <li><a href="labs.html">Project Labs</a></li>
+            <li><a href="https://github.com/yourusername" target="_blank">GitHub Profile</a></li>
+        </ul>
+        <div style="font-size: 0.8rem; color: var(--text-dim);">IT 4403 | Spring 2026</div>
+    </aside>
+
+    <main>
+        <section class="hero-section">
+            <h1>Advanced <span style="color: var(--accent);">Web Portals</span></h1>
+            <p>Welcome to my student portal. This environment is designed to showcase modular CSS architecture and responsive mobile-first development.</p>
+        </section>
+
+        <div class="content-grid">
+            <div class="style-card">
+                <h3>Technical Summary</h3>
+                <p>Developing high-performance applications using HTML5, CSS3, and JavaScript within a Git-controlled workflow.</p>
+            </div>
+
+            <div class="style-card">
+                <h3>KSU Resources</h3>
+                <p>Access the Department of Information Technology for official documentation and milestone requirements.</p>
             </div>
         </div>
-    </nav>
-
-    <header class="py-large text-center">
-        <div class="wrapper">
-            <h1 style="font-size: 4rem; font-weight: 800; margin-bottom: 1rem;">
-                Advanced <span class="text-accent">Web Design</span>
-            </h1>
-            <p style="font-size: 1.25rem; color: var(--text-sub); max-width: 700px; margin: 0 auto;">
-                Welcome to my portal for IT 4403. This project demonstrates high-fidelity 
-                layout techniques and modern CSS architecture.
-            </p>
-        </div>
-    </header>
-
-    <main class="wrapper">
-        <div class="feature-grid">
-            <a href="exercises.html" class="feature-card">
-                <h3 style="margin-bottom: 0.5rem;">Coding Exercises</h3>
-                <p style="color: var(--text-sub);">Small-scale practice modules and logic testing.</p>
-            </a>
-
-            <a href="labs.html" class="feature-card">
-                <h3 style="margin-bottom: 0.5rem;">Lab Milestones</h3>
-                <p style="color: var(--text-sub);">Major project development and application architecture.</p>
-            </a>
-
-            <a href="#" class="feature-card">
-                <h3 style="margin-bottom: 0.5rem;">Documentation</h3>
-                <p style="color: var(--text-sub);">Project charters, wireframes, and technical specs.</p>
-            </a>
-        </div>
     </main>
-
-    <footer class="text-center py-large" style="border-top: 1px solid var(--border);">
-        <p>&copy; 2026 Skyler Swislow | IT 4403 Portfolio Template</p>
-    </footer>
 
 </body>
 </html>
