@@ -3,47 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skyler Swislow | IT 4403 Portfolio</title>
+    <title>Skyler Swislow | IT Portfolio Template</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header class="hero">
-        <span class="badge">Student Portfolio</span>
-        <h1>Skyler Swislow</h1>
-        <p>Advanced Web and Mobile Applications | CCSE Department of IT</p>
+    <nav class="navbar">
+        <div class="wrapper nav-content">
+            <a href="#" class="logo">S.SWISLOW</a>
+            <div class="nav-links">
+                <a href="https://github.com" style="text-decoration: none; color: var(--text-sub);">GitHub</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="py-large text-center">
+        <div class="wrapper">
+            <h1 style="font-size: 4rem; font-weight: 800; margin-bottom: 1rem;">
+                Advanced <span class="text-accent">Web Design</span>
+            </h1>
+            <p style="font-size: 1.25rem; color: var(--text-sub); max-width: 700px; margin: 0 auto;">
+                Welcome to my portal for IT 4403. This project demonstrates high-fidelity 
+                layout techniques and modern CSS architecture.
+            </p>
+        </div>
     </header>
 
-    <div class="container">
-        <section class="section-card">
-            <h2>Site Overview</h2>
-            <p>Welcome to my professional course portal for <strong>IT 4403</strong>. This platform showcases my journey through advanced development, focusing on high-performance, accessible, and responsive web architecture.</p>
-        </section>
-
-        <div class="grid">
-            <a href="exercises.html" class="card">
-                <h3>Exercises</h3>
-                <p>A collection of algorithmic challenges, UI snippets, and coding practice modules.</p>
+    <main class="wrapper">
+        <div class="feature-grid">
+            <a href="exercises.html" class="feature-card">
+                <h3 style="margin-bottom: 0.5rem;">Coding Exercises</h3>
+                <p style="color: var(--text-sub);">Small-scale practice modules and logic testing.</p>
             </a>
 
-            <a href="labs.html" class="card">
-                <h3>Lab Work</h3>
-                <p>Deep dives into project milestones, system architecture, and mobile integration.</p>
+            <a href="labs.html" class="feature-card">
+                <h3 style="margin-bottom: 0.5rem;">Lab Milestones</h3>
+                <p style="color: var(--text-sub);">Major project development and application architecture.</p>
             </a>
 
-            <a href="https://ccse.kennesaw.edu/it" target="_blank" class="card">
-                <h3>KSU Department</h3>
-                <p>Official resources and documentation from the Kennesaw State University IT department.</p>
+            <a href="#" class="feature-card">
+                <h3 style="margin-bottom: 0.5rem;">Documentation</h3>
+                <p style="color: var(--text-sub);">Project charters, wireframes, and technical specs.</p>
             </a>
         </div>
+    </main>
 
-        <section class="disclaimer">
-            <p><small><strong>Disclaimer:</strong> Educational project for IT 4403. All rights reserved.</small></p>
-        </section>
-    </div>
-
-    <footer>
-        <p>&copy; 2026 Skyler Swislow | Built with HTML5 & Modern CSS</p>
+    <footer class="text-center py-large" style="border-top: 1px solid var(--border);">
+        <p>&copy; 2026 Skyler Swislow | IT 4403 Portfolio Template</p>
     </footer>
 
 </body>
