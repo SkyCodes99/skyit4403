@@ -1,34 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Book Search Results</title>
+    <title>Book Search List</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
-        body { font-family: Arial; background: #1a1a1a; color: white; padding: 40px; }
-        .list-item { border-bottom: 1px solid #444; padding: 15px; margin-bottom: 10px; }
+        body { font-family: Arial; background: #0f172a; color: white; padding: 40px; }
+        .book-entry { background: #1e293b; padding: 20px; margin-bottom: 15px; border-left: 5px solid #FFC629; border-radius: 5px; }
         h3 { color: #FFC629; margin: 0; }
+        .back { color: #FFC629; text-decoration: none; display: block; margin-bottom: 20px; }
     </style>
 </head>
 <body>
-
-    <h2>Multiple Search Results</h2>
-    <div id="list-area">Reading JSON file...</div>
+    <a href="index.html" class="back">← Back to Portal</a>
+    <h1>Book Search Results</h1>
+    <div id="results-area">Fetching data from JSON file...</div>
 
     <script>
     $(document).ready(function() {
         $.getJSON('google-books-search.json', function(data) {
-            var allBooks = data.items;
-            var finalHTML = "";
-            for (var i = 0; i < allBooks.length; i++) {
-                var currentBook = allBooks[i].volumeInfo;
-                
-                finalHTML += "<div class='list-item'>";
-                finalHTML += "<h3>" + currentBook.title + "</h3>";
-                finalHTML += "<p>Published: " + currentBook.publishedDate + "</p>";
-                finalHTML += "</div>";
-            }
+            var items = data.items;
+            var html = "";
 
-            $("#list-area").html(finalHTML);
+            for (var i = 0; i < items.length; i++) {
+                var info = items[i].volumeInfo;
+                html += "<div class='book-entry'>";
+                html += "<h3>" + info.title + "</h3>";
+                html += "<p><strong>Author:</strong> " + (info.authors ? info.authors.join(', ') : 'N/A') + "</p>";
+                html += "<p><strong>Published:</strong> " + info.publishedDate + "</p>";
+                html += "</div>";
+            }
+            $("#results-area").html(html);
         });
     });
     </script>
