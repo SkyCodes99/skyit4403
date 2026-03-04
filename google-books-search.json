@@ -1,0 +1,25 @@
+{
+  "items": [
+    {
+      "volumeInfo": {
+        "title": "JavaScript: The Good Parts",
+        "authors": ["Douglas Crockford"],
+        "publishedDate": "2008"
+      }
+    },
+    {
+      "volumeInfo": {
+        "title": "Eloquent JavaScript",
+        "authors": ["Marijn Haverbeke"],
+        "publishedDate": "2018"
+      }
+    },
+    {
+      "volumeInfo": {
+        "title": "Don't Make Me Think",
+        "authors": ["Steve Krug"],
+        "publishedDate": "2014"
+      }
+    }
+  ]
+}
