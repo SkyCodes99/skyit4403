@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Single Book Detail</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body { font-family: Arial; background: #1a1a1a; color: white; padding: 40px; }
+        .book-card { border: 2px solid #FFC629; padding: 20px; display: flex; gap: 20px; }
+        img { width: 150px; }
+    </style>
+</head>
+<body>
+
+    <h2>Single Book Information</h2>
+    <div id="display-area">Loading...</div>
+
+    <script>
+    $(document).ready(function() {
+        $.ajax({
+            url: 'google-books-book.json',
+            dataType: 'json',
+            success: function(data) {
+                var book = data.volumeInfo;
+                var htmlString = "";
+                htmlString += "<div class='book-card'>";
+                htmlString += "<img src='" + book.imageLinks.thumbnail + "'>";
+                htmlString += "<div>";
+                htmlString += "<h1>" + book.title + "</h1>";
+                htmlString += "<p><strong>Author:</strong> " + book.authors[0] + "</p>";
+                htmlString += "<p>" + book.description + "</p>";
+                htmlString += "</div>";
+                htmlString += "</div>";
+
+                $("#display-area").html(htmlString);
+            }
+        });
+    });
+    </script>
+</body>
+</html>
