@@ -1,298 +1,73 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IT 4403 Homepage - Skyler Swislow</title>
+    <title>IT 4403 Project Home</title>
     <style>
-        /* Modern Design System */
-        :root {
-            --primary: #2c3e50;
-            --secondary: #3498db;
-            --accent: #e74c3c;
-            --success: #27ae60;
-            --warning: #f39c12;
-            --light-bg: #ecf0f1;
-            --text-color: #2c3e50;
-            --text-light: #7f8c8d;
-            --border-color: #bdc3c7;
-            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
-            --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        body { 
+            font-family: Arial, sans-serif; 
+            background-color: #1a1a1a; 
+            color: white; 
+            margin: 0; padding: 20px; 
         }
-
-        * {
-            box-sizing: border-box;
+        .container { max-width: 900px; margin: auto; }
+        
+        /* Navigation area */
+        nav { background: #333; padding: 15px; border-radius: 8px; margin-bottom: 20px; }
+        nav a { color: #FFC629; margin-right: 20px; text-decoration: none; font-weight: bold; }
+        
+        /* Content boxes */
+        .box { 
+            background: #252525; 
+            padding: 20px; 
+            border: 1px solid #444; 
+            margin-bottom: 20px; 
+            border-radius: 10px; 
         }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Segoe UI', Trebuchet MS, sans-serif;
-            line-height: 1.8;
-            color: var(--text-color);
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            min-height: 100vh;
-            margin: 0;
-            padding: 0;
-        }
-
-        header {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            color: white;
-            padding: 4rem 2rem;
-            text-align: center;
-            box-shadow: var(--shadow-lg);
-            position: relative;
-            overflow: hidden;
-        }
-
-        header::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -10%;
-            width: 200px;
-            height: 200px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-        }
-
-        header::after {
-            content: '';
-            position: absolute;
-            bottom: -30%;
-            left: -5%;
-            width: 150px;
-            height: 150px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 2.5rem;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-            position: relative;
-            z-index: 1;
-        }
-
-        header p {
-            margin: 0.5rem 0 0;
-            font-size: 1.1rem;
-            opacity: 0.95;
-            position: relative;
-            z-index: 1;
-        }
-
-        main {
-            max-width: 900px;
-            margin: 3rem auto;
-            padding: 0 1.5rem;
-        }
-
-        section {
-            background: white;
-            padding: 2.5rem;
-            margin: 2rem 0;
-            border-radius: 12px;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-        }
-
-        section:hover {
-            box-shadow: var(--shadow-lg);
-            transform: translateY(-2px);
-        }
-
-        h2 {
-            color: var(--primary);
-            font-size: 1.8rem;
-            margin-top: 0;
-            margin-bottom: 1.5rem;
-            border-bottom: 3px solid var(--secondary);
-            padding-bottom: 1rem;
-        }
-
-        h3 {
-            color: var(--secondary);
-            font-size: 1.4rem;
-            margin-top: 0;
-        }
-
-        nav {
-            background: white;
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: var(--shadow);
-            margin: 2rem 0;
-            border-left: 5px solid var(--secondary);
-            transition: var(--transition);
-        }
-
-        nav:hover {
-            box-shadow: var(--shadow-lg);
-            transform: translateX(4px);
-        }
-
-        nav ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        nav li {
-            margin: 1rem 0;
-            padding: 1rem;
-            background: var(--light-bg);
-            border-radius: 8px;
-            transition: var(--transition);
-        }
-
-        nav li:hover {
-            background: var(--secondary);
-            color: white;
-        }
-
-        nav li:hover a {
-            color: white;
-        }
-
-        .disclaimer {
-            background: linear-gradient(135deg, #fff5e6 0%, #ffe6cc 100%);
-            border-left: 5px solid var(--warning);
-            color: #7d5a1d;
-            font-style: italic;
-            transition: var(--transition);
-        }
-
-        .disclaimer:hover {
-            box-shadow: var(--shadow-lg);
-        }
-
-        footer {
-            text-align: center;
-            padding: 3rem 2rem;
-            color: white;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            font-size: 0.95rem;
-            margin-top: 4rem;
-        }
-
-        a {
-            color: var(--secondary);
-            text-decoration: none;
-            font-weight: 600;
-            transition: var(--transition);
-            position: relative;
-        }
-
-        a::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--accent);
-            transition: var(--transition);
-        }
-
-        a:hover {
-            color: var(--accent);
-        }
-
-        a:hover::after {
-            width: 100%;
-        }
-
-        strong {
-            color: var(--secondary);
-            font-weight: 700;
-        }
-
-        p {
-            color: var(--text-light);
-            line-height: 1.9;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            header {
-                padding: 2.5rem 1rem;
-            }
-
-            header h1 {
-                font-size: 2rem;
-            }
-
-            main {
-                padding: 0 1rem;
-                margin: 1.5rem auto;
-            }
-
-            section, nav {
-                padding: 1.5rem;
-                margin: 1rem 0;
-            }
-
-            h2 {
-                font-size: 1.5rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            header h1 {
-                font-size: 1.5rem;
-            }
-
-            h2 {
-                font-size: 1.3rem;
-            }
-
-            section, nav {
-                padding: 1rem;
-            }
-
-            main {
-                margin: 1rem auto;
-            }
-        }
+        h1, h2 { color: #FFC629; }
+        .disclaimer { font-style: italic; color: #888; border-top: 1px solid #444; padding-top: 10px; }
     </style>
 </head>
 <body>
 
+<div class="container">
     <header>
-        <h1>Skyler Swislow</h1>
-        <p>Student | CCSE Department of IT</p>
+        <h1>Book Explorer Project</h1>
+        <p>Created by: Skyler Swislow</p>
+        <p>Course: IT 4403 - Advanced Web & Mobile Applications</p>
+        <p>University: Kennesaw State University</p>
     </header>
 
-    <main>
-        <section>
-            <h2>Site Overview</h2>
-            <p>Welcome to my course portal for <strong>IT 4403 – Advanced Web and Mobile Applications</strong>. This site serves as a central hub for my academic projects, where I demonstrate my skills in developing responsive and accessible web applications.</p>
-        </section>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="book-detail.html">Single Book</a>
+        <a href="book-list.html">Book Search List</a>
+        <a href="https://ccse.kennesaw.edu/it" target="_blank">CCSE IT Website</a>
+    </nav>
 
-        <nav>
-            <h3>Course Work</h3>
-            <ul>
-                <li><a href="exercises.html">Exercises</a> - Small coding tasks and practice.</li>
-                <li><a href="labs.html">Lab Work</a> - Detailed laboratory assignments and project milestones.</li>
-                <li><a href="https://ccse.kennesaw.edu/it" target="_blank">CCSE Department of IT Website</a></li>
-            </ul>
-        </nav>
+    <div class="box">
+        <h2>Site Description</h2>
+        <p>This website is an individual project that uses JavaScript and jQuery to read JSON data and display book information. It will eventually become a Single Page Application.</p>
+    </div>
 
-        <section class="disclaimer">
-            <p><strong>Disclaimer:</strong> This is a student website created for course projects in IT 4403. Content on this site is for educational purposes only.</p>
-        </section>
-    </main>
+    <div class="box">
+        <h2>Individual Project Work</h2>
+        <ul>
+            <li><a href="book-detail.html" style="color:white;">Milestone 1: Single Book Page</a></li>
+            <li><a href="book-list.html" style="color:white;">Milestone 1: Book Search Page</a></li>
+        </ul>
+    </div>
 
-    <footer>
-        <p>&copy; 2026 Skyler Swislow | IT 4403</p>
-    </footer>
+    <div class="box">
+        <h2>Lab Work</h2>
+        <ul>
+            <li><a href="exercises.html" style="color:white;">Course Exercises</a></li>
+        </ul>
+    </div>
+
+    <div class="disclaimer">
+        <p>Student Project Website Disclaimer: This is a student website created for IT 4403. Content is for educational purposes only.</p>
+    </div>
+</div>
 
 </body>
 </html>
