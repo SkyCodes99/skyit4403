@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book Search Results</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body { font-family: Arial; background: #1a1a1a; color: white; padding: 40px; }
+        .list-item { border-bottom: 1px solid #444; padding: 15px; margin-bottom: 10px; }
+        h3 { color: #FFC629; margin: 0; }
+    </style>
+</head>
+<body>
+
+    <h2>Multiple Search Results</h2>
+    <div id="list-area">Reading JSON file...</div>
+
+    <script>
+    $(document).ready(function() {
+        $.getJSON('google-books-search.json', function(data) {
+            var allBooks = data.items;
+            var finalHTML = "";
+            for (var i = 0; i < allBooks.length; i++) {
+                var currentBook = allBooks[i].volumeInfo;
+                
+                finalHTML += "<div class='list-item'>";
+                finalHTML += "<h3>" + currentBook.title + "</h3>";
+                finalHTML += "<p>Published: " + currentBook.publishedDate + "</p>";
+                finalHTML += "</div>";
+            }
+
+            $("#list-area").html(finalHTML);
+        });
+    });
+    </script>
+</body>
+</html>
