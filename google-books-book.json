@@ -1,0 +1,13 @@
+{
+  "volumeInfo": {
+    "title": "Learning Web Design",
+    "authors": ["Jennifer Robbins"],
+    "publisher": "O'Reilly Media",
+    "publishedDate": "2018-05-11",
+    "description": "A beginner's guide to HTML, CSS, JavaScript, and Web Graphics.",
+    "pageCount": 808,
+    "imageLinks": {
+      "thumbnail": "https://via.placeholder.com/150x200?text=Book+Cover"
+    }
+  }
+}
