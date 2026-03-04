@@ -1,38 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Single Book Detail</title>
+    <title>Book Detail View</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
-        body { font-family: Arial; background: #1a1a1a; color: white; padding: 40px; }
-        .book-card { border: 2px solid #FFC629; padding: 20px; display: flex; gap: 20px; }
-        img { width: 150px; }
+        body { font-family: Arial; background: #0f172a; color: white; padding: 40px; }
+        .container { max-width: 800px; margin: auto; background: #1e293b; padding: 30px; border: 1px solid #FFC629; border-radius: 15px; }
+        img { float: left; margin-right: 25px; width: 150px; border-radius: 5px; }
+        h1 { color: #FFC629; margin-top: 0; }
+        .back { color: #FFC629; text-decoration: none; display: block; margin-bottom: 20px; }
     </style>
 </head>
 <body>
-
-    <h2>Single Book Information</h2>
-    <div id="display-area">Loading...</div>
+    <a href="index.html" class="back">← Back to Portal</a>
+    <div id="content" class="container">Reading book metadata...</div>
 
     <script>
     $(document).ready(function() {
-        $.ajax({
-            url: 'google-books-book.json',
-            dataType: 'json',
-            success: function(data) {
-                var book = data.volumeInfo;
-                var htmlString = "";
-                htmlString += "<div class='book-card'>";
-                htmlString += "<img src='" + book.imageLinks.thumbnail + "'>";
-                htmlString += "<div>";
-                htmlString += "<h1>" + book.title + "</h1>";
-                htmlString += "<p><strong>Author:</strong> " + book.authors[0] + "</p>";
-                htmlString += "<p>" + book.description + "</p>";
-                htmlString += "</div>";
-                htmlString += "</div>";
-
-                $("#display-area").html(htmlString);
-            }
+        $.getJSON('google-books-book.json', function(data) {
+            var book = data.volumeInfo;
+            var html = "";
+            html += "<img src='" + book.imageLinks.thumbnail + "'>";
+            html += "<h1>" + book.title + "</h1>";
+            html += "<p><strong>Author:</strong> " + book.authors[0] + "</p>";
+            html += "<p><strong>Description:</strong> " + book.description + "</p>";
+            html += "<p><strong>Page Count:</strong> " + book.pageCount + "</p>";
+            
+            $("#content").html(html);
         });
     });
     </script>
