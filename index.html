@@ -1,73 +1,80 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>IT 4403 Project Home</title>
+    <meta charset="UTF-8">
+    <title>Book Explorer - Search</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
-        body { 
-            font-family: Arial, sans-serif; 
-            background-color: #1a1a1a; 
-            color: white; 
-            margin: 0; padding: 20px; 
-        }
-        .container { max-width: 900px; margin: auto; }
-        
-        /* Navigation area */
-        nav { background: #333; padding: 15px; border-radius: 8px; margin-bottom: 20px; }
+        body { font-family: 'Segoe UI', Arial; background: #0f172a; color: white; margin: 0; padding: 20px; }
+        nav { background: #1e293b; padding: 15px; border-radius: 8px; margin-bottom: 25px; border-bottom: 2px solid #FFC629; }
         nav a { color: #FFC629; margin-right: 20px; text-decoration: none; font-weight: bold; }
-        
-        /* Content boxes */
-        .box { 
-            background: #252525; 
-            padding: 20px; 
-            border: 1px solid #444; 
-            margin-bottom: 20px; 
-            border-radius: 10px; 
-        }
-        h1, h2 { color: #FFC629; }
-        .disclaimer { font-style: italic; color: #888; border-top: 1px solid #444; padding-top: 10px; }
+        .search-container { background: #1e293b; padding: 20px; border-radius: 10px; margin-bottom: 20px; }
+        input[type="text"] { padding: 10px; width: 300px; border-radius: 5px; border: none; }
+        button { padding: 10px 20px; background: #FFC629; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; }
+        .pagination-controls { margin: 20px 0; display: flex; align-items: center; gap: 10px; }
+        #results-area { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; }
+        .book-card { background: #1e293b; padding: 15px; border-radius: 8px; text-align: center; border: 1px solid #334155; }
+        .book-card img { max-width: 100px; height: 150px; margin-bottom: 10px; }
+        .book-card a { color: #FFC629; text-decoration: none; font-size: 0.9em; display: block; }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <header>
-        <h1>Book Explorer Project</h1>
-        <p>Created by: Skyler Swislow</p>
-        <p>Course: IT 4403 - Advanced Web & Mobile Applications</p>
-        <p>University: Kennesaw State University</p>
-    </header>
-
     <nav>
         <a href="index.html">Home</a>
-        <a href="book-detail.html">Single Book</a>
-        <a href="book-list.html">Book Search List</a>
-        <a href="https://ccse.kennesaw.edu/it" target="_blank">CCSE IT Website</a>
+        <a href="bookshelf.html">My Bookshelf</a>
     </nav>
 
-    <div class="box">
-        <h2>Site Description</h2>
-        <p>This website is an individual project that uses JavaScript and jQuery to read JSON data and display book information. It will eventually become a Single Page Application.</p>
+    <div class="search-container">
+        <h1>Book Search</h1>
+        <input type="text" id="searchInput" placeholder="Enter keywords (e.g. JavaScript)...">
+        <button id="searchBtn">Search</button>
+
+        <div class="pagination-controls">
+            <label for="pageSelect">Page:</label>
+            <select id="pageSelect">
+                <option value="0">1 (1-20)</option>
+                <option value="20">2 (21-40)</option>
+                <option value="40">3 (41-60)</option>
+            </select>
+        </div>
     </div>
 
-    <div class="box">
-        <h2>Individual Project Work</h2>
-        <ul>
-            <li><a href="book-detail.html" style="color:white;">Milestone 1: Single Book Page</a></li>
-            <li><a href="book-list.html" style="color:white;">Milestone 1: Book Search Page</a></li>
-        </ul>
-    </div>
+    <div id="results-area"></div>
 
-    <div class="box">
-        <h2>Lab Work</h2>
-        <ul>
-            <li><a href="exercises.html" style="color:white;">Course Exercises</a></li>
-        </ul>
-    </div>
+    <script>
+        $(document).ready(function() {
+            function performSearch() {
+                const query = $('#searchInput').val();
+                const startIndex = $('#pageSelect').val();
+                if (!query) return;
 
-    <div class="disclaimer">
-        <p>Student Project Website Disclaimer: This is a student website created for IT 4403. Content is for educational purposes only.</p>
-    </div>
-</div>
+                const url = `https://www.googleapis.com/books/v1/volumes?q=${encodeURIComponent(query)}&startIndex=${startIndex}&maxResults=20`;
+                
+                $("#results-area").html("<p>Searching...</p>");
 
+                $.getJSON(url, function(data) {
+                    let html = "";
+                    if (data.items) {
+                        data.items.forEach(item => {
+                            const info = item.volumeInfo;
+                            const thumb = info.imageLinks ? info.imageLinks.thumbnail : "https://via.placeholder.com/100x150?text=No+Cover";
+                            html += `
+                                <div class="book-card">
+                                    <img src="${thumb}" alt="Cover">
+                                    <a href="book-detail.html?id=${item.id}">${info.title}</a>
+                                </div>`;
+                        });
+                    } else {
+                        html = "<p>No results found.</p>";
+                    }
+                    $("#results-area").html(html);
+                });
+            }
+
+            $("#searchBtn").click(performSearch);
+            $("#pageSelect").change(performSearch);
+        });
+    </script>
 </body>
 </html>
