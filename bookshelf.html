@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Bookshelf - Milestone 2</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #0f172a; color: white; margin: 0; padding: 20px; }
+        
+        /* Navigation */
+        nav { background: #1e293b; padding: 15px; border-radius: 8px; margin-bottom: 25px; border-bottom: 2px solid #FFC629; }
+        nav a { color: #FFC629; margin-right: 20px; text-decoration: none; font-weight: bold; }
+        nav a:hover { text-decoration: underline; }
+
+        h1 { color: #FFC629; border-bottom: 1px solid #334155; padding-bottom: 10px; }
+
+        /* Bookshelf Grid */
+        #shelf-area { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); 
+            gap: 25px; 
+            margin-top: 20px;
+        }
+
+        .book-card { 
+            background: #1e293b; 
+            padding: 15px; 
+            border-radius: 10px; 
+            text-align: center; 
+            border: 1px solid #334155;
+            transition: transform 0.2s;
+        }
+
+        .book-card:hover { transform: translateY(-5px); border-color: #FFC629; }
+        .book-card img { width: 120px; height: 180px; border-radius: 5px; margin-bottom: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.3); }
+        .book-card a { color: #FFC629; text-decoration: none; font-weight: bold; font-size: 0.95em; display: block; line-height: 1.3; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="bookshelf.html">My Bookshelf</a>
+    </nav>
+
+    <h1>My Public Bookshelf</h1>
+    <p>Hand-picked volumes retrieved dynamically via the Google Books API.</p>
