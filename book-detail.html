@@ -1,33 +1,55 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Book Detail View</title>
+    <meta charset="UTF-8">
+    <title>Book Details</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
         body { font-family: Arial; background: #0f172a; color: white; padding: 40px; }
-        .container { max-width: 800px; margin: auto; background: #1e293b; padding: 30px; border: 1px solid #FFC629; border-radius: 15px; }
-        img { float: left; margin-right: 25px; width: 150px; border-radius: 5px; }
-        h1 { color: #FFC629; margin-top: 0; }
-        .back { color: #FFC629; text-decoration: none; display: block; margin-bottom: 20px; }
+        nav { background: #1e293b; padding: 15px; border-radius: 8px; margin-bottom: 25px; border-bottom: 2px solid #FFC629; }
+        nav a { color: #FFC629; margin-right: 20px; text-decoration: none; font-weight: bold; }
+        .container { max-width: 900px; margin: auto; background: #1e293b; padding: 30px; border-radius: 15px; display: flex; gap: 30px; border: 1px solid #444; }
+        .detail-img { width: 250px; border-radius: 5px; }
+        .info-panel h1 { color: #FFC629; margin-top: 0; }
+        .price-tag { background: #FFC629; color: black; padding: 5px 10px; border-radius: 5px; font-weight: bold; display: inline-block; }
     </style>
 </head>
 <body>
-    <a href="index.html" class="back">← Back to Portal</a>
-    <div id="content" class="container">Reading book metadata...</div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="bookshelf.html">My Bookshelf</a>
+    </nav>
+
+    <div id="content" class="container">Loading book details...</div>
 
     <script>
     $(document).ready(function() {
-        $.getJSON('google-books-book.json', function(data) {
-            var book = data.volumeInfo;
-            var html = "";
-            html += "<img src='" + book.imageLinks.thumbnail + "'>";
-            html += "<h1>" + book.title + "</h1>";
-            html += "<p><strong>Author:</strong> " + book.authors[0] + "</p>";
-            html += "<p><strong>Description:</strong> " + book.description + "</p>";
-            html += "<p><strong>Page Count:</strong> " + book.pageCount + "</p>";
-            
-            $("#content").html(html);
-        });
+        const urlParams = new URLSearchParams(window.location.search);
+        const bookId = urlParams.get('id');
+
+        if (bookId) {
+            $.getJSON(`https://www.googleapis.com/books/v1/volumes/${bookId}`, function(data) {
+                const info = data.volumeInfo;
+                const sale = data.saleInfo;
+                const thumb = info.imageLinks ? info.imageLinks.medium || info.imageLinks.thumbnail : "https://via.placeholder.com/250x350";
+                const price = (sale && sale.listPrice) ? `${sale.listPrice.amount} ${sale.listPrice.currencyCode}` : "Not for Sale";
+
+                let html = `
+                    <img src="${thumb}" class="detail-img">
+                    <div class="info-panel">
+                        <h1>${info.title}</h1>
+                        <p><strong>Authors:</strong> ${info.authors ? info.authors.join(', ') : 'Unknown'}</p>
+                        <p><strong>Publisher:</strong> ${info.publisher || 'N/A'}</p>
+                        <p><strong>Price:</strong> <span class="price-tag">${price}</span></p>
+                        <hr>
+                        <p>${info.description || 'No description available.'}</p>
+                    </div>`;
+                
+                $("#content").html(html);
+            }).fail(function() {
+                $("#content").html("<p>Error retrieving book data.</p>");
+            });
+        }
     });
     </script>
 </body>
